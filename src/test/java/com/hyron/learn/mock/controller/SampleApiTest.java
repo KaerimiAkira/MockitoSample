@@ -81,6 +81,8 @@ class SampleApiTest extends TestSupport {
   @DisplayName("CreateUser - Without mock.")
   void test_create_user_01() throws Exception {
     // Mock
+    Mockito.doCallRealMethod().when(userRepository).createUser(Mockito.any());
+
     var request =
         new CreateUserRequest()
             .setLoginId("test_create_user_01")
@@ -91,8 +93,8 @@ class SampleApiTest extends TestSupport {
 
     Assertions.assertThat(response).hasFieldOrPropertyWithValue("statusCode", HttpStatus.OK);
     Assertions.assertThat(response.getBody())
-        .hasFieldOrPropertyWithValue("loginId", "000002")
-        .hasFieldOrPropertyWithValue("userName", "CreatedWithoutMock");
+        .hasFieldOrPropertyWithValue("loginId", "test_create_user_01")
+        .hasFieldOrPropertyWithValue("userName", "test_create_user_01_name");
   }
 
   @Test
