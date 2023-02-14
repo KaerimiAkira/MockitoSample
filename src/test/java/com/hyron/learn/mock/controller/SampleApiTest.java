@@ -12,15 +12,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
@@ -40,9 +36,7 @@ class SampleApiTest extends TestSupport {
     @Primary
     @Bean
     public UserRepository userRepository() {
-      return Mockito.mock(
-          DefaultUserRepository.class,
-          Mockito.withSettings().defaultAnswer(InvocationOnMock::callRealMethod));
+      return Mockito.spy(DefaultUserRepository.class);
     }
   }
 
