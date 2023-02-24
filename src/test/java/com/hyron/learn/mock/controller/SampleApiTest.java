@@ -1,13 +1,12 @@
 package com.hyron.learn.mock.controller;
 
-import com.hyron.learn.mock.TestSupport;
+import com.hyron.learn.mock.ApiTestSupport;
 import com.hyron.learn.mock.model.database.UserEntity;
 import com.hyron.learn.mock.model.server.sample.CreateUserRequest;
 import com.hyron.learn.mock.model.server.sample.CreateUserResponse;
 import com.hyron.learn.mock.model.server.sample.GetUserResponse;
 import com.hyron.learn.mock.repository.UserRepository;
 import com.hyron.learn.mock.repository.impl.DefaultUserRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -28,8 +27,7 @@ import org.springframework.util.LinkedMultiValueMap;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @Import({SampleApiTest.SampleApiMockConfiguration.class})
-@Slf4j
-class SampleApiTest extends TestSupport {
+class SampleApiTest extends ApiTestSupport {
   @TestConfiguration(proxyBeanMethods = false)
   public static class SampleApiMockConfiguration {
 

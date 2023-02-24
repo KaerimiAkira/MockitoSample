@@ -1,0 +1,9 @@
+INPUT	EXPECTED
+dummy@dumm.com	TRUE
+12345@com	FALSE
+xxx@hyron.com.cn	TRUE
+xxx-xxx_xxx.xxx@hyron.com.cn	TRUE
+	FALSE
+NVL	FALSE
+<<null>>	FALSE
+''	FALSE

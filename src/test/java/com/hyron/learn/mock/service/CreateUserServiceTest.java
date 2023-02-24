@@ -1,6 +1,6 @@
 package com.hyron.learn.mock.service;
 
-import com.hyron.learn.mock.TestSupport;
+import com.hyron.learn.mock.MockTestSupport;
 import com.hyron.learn.mock.exception.BusinessException;
 import com.hyron.learn.mock.mapping.SampleApiMapping;
 import com.hyron.learn.mock.mapping.SampleApiMappingImpl;
@@ -9,7 +9,6 @@ import com.hyron.learn.mock.model.server.sample.CreateUserRequest;
 import com.hyron.learn.mock.model.server.sample.CreateUserResponse;
 import com.hyron.learn.mock.repository.UserRepository;
 import com.hyron.learn.mock.repository.impl.DefaultUserRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,10 +20,11 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.invocation.InvocationOnMock;
 
-@Slf4j
+@DisplayName("CreateUserService Test")
 class CreateUserServiceTest {
   @Nested
-  class WithConstructor extends TestSupport {
+  @DisplayName("Mock with constructor.")
+  class WithConstructor extends MockTestSupport {
     private static final UserRepository userRepository =
         Mockito.mock(
             DefaultUserRepository.class,
@@ -168,7 +168,8 @@ class CreateUserServiceTest {
   }
 
   @Nested
-  class WithMockAnnotation extends TestSupport {
+  @DisplayName("Mock with annotation.")
+  class WithMockAnnotation extends MockTestSupport {
     @Spy
     final UserRepository userRepository =
         Mockito.mock(
