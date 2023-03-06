@@ -1,11 +1,12 @@
 plugins {
     id 'java'
+    id 'idea'
     id 'org.springframework.boot' version '3.0.1'
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'com.hyron.learn'
-version = '0.0.1-SNAPSHOT'
+version = '1.0'
 sourceCompatibility = '17'
 
 repositories {
@@ -30,8 +31,11 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-core'
     implementation 'com.fasterxml.jackson.core:jackson-annotations'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
     // apache-common
     implementation 'org.apache.commons:commons-lang3:3.12.0'
+    // inject
+    implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
 
     testAnnotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
